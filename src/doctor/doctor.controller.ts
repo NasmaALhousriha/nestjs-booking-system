@@ -1,0 +1,36 @@
+import { Controller, Get, Post, Body, Patch, Param, Delete,UsePipes, ValidationPipe } from '@nestjs/common';
+import { DoctorService } from './doctor.service.js';
+import { CreateDoctorDto } from './dto/create-doctor.dto.js';
+import { UpdateDoctorDto } from './dto/update-doctor.dto.js';
+
+@Controller('doctor')
+export class DoctorController {
+  constructor(private readonly doctorService: DoctorService) {}
+
+  @Post()
+  @UsePipes(new ValidationPipe({ transform: true }))
+  create(@Body() createDoctorDto: CreateDoctorDto) {
+    return this.doctorService.create(createDoctorDto);
+  }
+
+  @Get()
+  findAll() {
+    return this.doctorService.findAll();
+  }
+
+  @Get(':id')
+  findOne(@Param('id') id: string) {
+    return this.doctorService.findOne(+id);
+  }
+
+  @Patch(':id')
+  @UsePipes(new ValidationPipe({ transform: true }))
+  update(@Param('id') id: string, @Body() updateDoctorDto: UpdateDoctorDto) {
+    return this.doctorService.update(+id, updateDoctorDto);
+  }
+
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    return this.doctorService.remove(+id);
+  }
+}
