@@ -1,10 +1,10 @@
 
 ## 📌 API Endpoints Documentation
 
-### 1. Users (`/users`)
+### 1. Users (`/user`)
 * **Register a new user (Patient or Doctor)**
   * **Method:** `POST`
-  * **Endpoint:** `/users`
+  * **Endpoint:** `/user`
   * **Body (JSON):**
     ```json
     {
@@ -18,7 +18,7 @@
 
 * **Get all users**
   * **Method:** `GET`
-  * **Endpoint:** `/users`
+  * **Endpoint:** `/user`
 
 ---
 
@@ -36,10 +36,10 @@
 
 ---
 
-### 3. Doctors (`/doctors`)
+### 3. Doctors (`/doctor`)
 * **Create a doctor profile (Linked to a user with role `doctor`)**
   * **Method:** `POST`
-  * **Endpoint:** `/doctors`
+  * **Endpoint:** `/doctor`
   * **Body (JSON):**
     ```json
     {
@@ -49,17 +49,17 @@
     }
     ```
 
-* **Get all doctors**
+* **Get all doctor**
   * **Method:** `GET`
-  * **Endpoint:** `/doctors`
+  * **Endpoint:** `/doctor`
 
 ---
 
-### 4. Bookings (`/bookings`)
+### 4. Bookings (`/booking`)
 * **Create a new appointment booking**
   *(Includes strict business validations: no past dates, maximum 30 days in advance, working hours 09:00 - 17:00, and prevention of double-booking).*
   * **Method:** `POST`
-  * **Endpoint:** `/bookings`
+  * **Endpoint:** `/booking`
   * **Body (JSON):**
     ```json
     {
@@ -71,19 +71,10 @@
 
 * **Get all bookings**
   * **Method:** `GET`
-  * **Endpoint:** `/bookings`
+  * **Endpoint:** `/booking`
 
 ---
 
-## ⚙️ Environment Variables (`.env`)
-Make sure to configure your `.env` file before running the project:
-```env
-DB_HOST=localhost
-DB_PORT=3306
-DB_USERNAME=root
-DB_PASSWORD=your_password
-DB_NAME=your_database_name
-JWT_SECRET=your_super_secret_key
 
 
 ## Project setup
@@ -127,7 +118,5 @@ If you are looking for a cloud-based platform to deploy your NestJS application,
 ```bash
 $ npm install -g @nestjs/mau
 $ mau deploy
-```
 
-| **GET** | `/` | فحص حالة السيرفر (Health Check) | لا يحتاج بيانات |
 
