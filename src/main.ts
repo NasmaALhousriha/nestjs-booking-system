@@ -1,5 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module.js';
+import { LoggingInterceptor } from './interceptors/LoggingInterceptor.js';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
@@ -7,10 +8,16 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     snapshot: false, 
   });
+   
 
 
   app.enableCors();
-app.useGlobalPipes(
+
+app.useGlobalInterceptors(
+  new LoggingInterceptor()
+);
+app.useGlobalPipes( 
+
     new ValidationPipe({
       whitelist: true, 
       transform: true, 
