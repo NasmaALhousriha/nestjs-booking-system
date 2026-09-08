@@ -1,13 +1,14 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete ,ValidationPipe,UsePipes} from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, ValidationPipe, UsePipes, UseGuards } from '@nestjs/common';
+import { AuthGuard } from '@nestjs/passport';
 import { BookingService } from './booking.service.js';
 import { CreateBookingDto } from './dto/create-booking.dto.js';
 import { UpdateBookingDto } from './dto/update-booking.dto.js';
 
 @Controller('booking')
+@UseGuards(AuthGuard('jwt'))
 export class BookingController {
   constructor(private readonly bookingService: BookingService) {}
 
-  
   @Post()
   @UsePipes(new ValidationPipe({ transform: true }))
   async create(@Body() createBookingDto: CreateBookingDto) {
