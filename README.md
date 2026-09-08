@@ -112,3 +112,18 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+
+
+
+
+ (API Endpoints)
+> **ملاحظة:** الرابط الأساسي (Base URL) لجميع الطلبات هو `http://localhost:3000`
+
+| الطريقة (Method) | المسار (Endpoint) | الوصف (Description) | البيانات المطلوبة (Body/Headers) |
+| :--- | :--- | :--- | :--- |
+| **POST** | `/auth/login` | تسجيل الدخول | يحتاج `email` و `password` في الـ Body |
+| **POST** | `/users` | إضافة مستخدم جديد | يحتاج بيانات المستخدم (مثل الاسم، الإيميل، كلمة المرور) |
+| **POST** | `/doctor` | إضافة طبيب جديد | يحتاج بيانات الطبيب والاختصاص |
+| **GET** | `/` | فحص حالة السيرفر (Health Check) | لا يحتاج بيانات |
+
