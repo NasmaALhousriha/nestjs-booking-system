@@ -1,17 +1,4 @@
 
-# 🩺 Medical Booking System API
-
-A robust backend REST API built with **NestJS**, **TypeORM**, and **MySQL** for managing medical clinics, users, doctors, and appointment bookings with secure authentication and strict validation rules.
-
----
-
-## 🚀 Tech Stack
-* **Framework:** NestJS
-* **Database & ORM:** MySQL & TypeORM
-* **Validation & Security:** `class-validator`, `class-transformer`, `bcrypt`, `@nestjs/jwt`, `Passport.js`
-
----
-
 ## 📌 API Endpoints Documentation
 
 ### 1. Users (`/users`)
